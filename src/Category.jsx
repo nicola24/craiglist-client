@@ -1,16 +1,16 @@
 import React from 'react';
+import axios from 'axios';
 import Display from './Display';
 import Header from './Header';
 import Footer from './Footer';
-import axios from 'axios';
-import data from './data/sample-data';
+// import data from './data/sample-data';
 
 class Category extends React.Component {
   constructor() {
     super();
     this.state = {
       category: 'sss',
-      listing: data, // data to be removed for an array
+      listing: [], // data to be removed for an array
       search: '',
     };
     this.selectCat = this.selectCat.bind(this);
@@ -24,13 +24,16 @@ class Category extends React.Component {
     //     const craigslistData = res.data;
     //     this.setState({ listing: craigslistData });
     //   });
+    axios.get('https://jsonplaceholder.typicode.com/photos') // fake data REST API
+      .then((res) => {
+        const fakeData = res.data;
+        // console.log(fakeData);
+        this.setState({ listing: fakeData });
+      });
   }
 
   fetchData(cat) {
-    // const options = {
-    //
-    // }
-    // axios.get(`/category/${cat}`)
+
   }
 
   selectCat(e) {
@@ -213,7 +216,7 @@ class Category extends React.Component {
           </div>
         </div>
         <div id="display">
-          {this.state.listing.map(x => <Display listOfItem={x} key={x.pid} />)}
+          {this.state.listing.map(x => <Display listOfItem={x} key={x.id} />)}
         </div>
         <div>
           <Footer />

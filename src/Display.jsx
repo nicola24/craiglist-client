@@ -4,20 +4,20 @@ const Display = ({ listOfItem }) => (
   <div id="item">
     <div>
       <a href={listOfItem.url} target="_blank">
-        <img src={listOfItem.images} alt="not found" />
+        <img src={listOfItem.thumbnailUrl} alt="not found" />
       </a>
     </div>
     <div id="price">
-      <p>{listOfItem.price}</p>
+      <p>${listOfItem.id}</p>
     </div>
     <div id="title">
       <p>{listOfItem.title}</p>
     </div>
     <div id="date">
-      <p>posted on {listOfItem.date.slice(0, 10)}</p>
+      {/* <p>posted on {listOfItem.date.slice(0, 10)}</p> */}
     </div>
     <div id="location">
-      <p>{listOfItem.location.replace(/[{()}]/g, '')}</p>
+      {/* <p>{listOfItem.location.replace(/[{()}]/g, '')}</p> */}
     </div>
   </div>
 );
