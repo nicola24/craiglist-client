@@ -10,7 +10,7 @@ class Category extends React.Component {
     super();
     this.state = {
       category: 'sss',
-      listing: data, // to be removed
+      listing: data, // data to be removed for an array
       search: '',
     };
     this.selectCat = this.selectCat.bind(this);
@@ -19,7 +19,11 @@ class Category extends React.Component {
   }
 
   componentDidMount() {
-
+    // axios.get(`/category/${this.state.category}`)
+    //   .then((res) => {
+    //     const craigslistData = res.data;
+    //     this.setState({ listing: craigslistData });
+    //   });
   }
 
   fetchData(cat) {
